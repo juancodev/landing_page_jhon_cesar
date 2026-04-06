@@ -281,7 +281,7 @@ function CameraModel() {
 export function Scene() {
   return (
     <div className="fixed inset-0 z-0 pointer-events-none opacity-80 md:opacity-100">
-      <Canvas camera={{ position: [0, 0, 7], fov: 45 }}>
+      <Canvas camera={{ position: [0, 0, 7], fov: 45 }} style={{ pointerEvents: 'none' }}>
         {/* Studio Lighting Setup */}
         <ambientLight intensity={0.2} />
         

@@ -14,7 +14,7 @@ import { Preloader } from './components/Preloader';
 
 export default function App() {
   return (
-    <main className="bg-[var(--color-background)] text-[var(--color-foreground)] min-h-screen font-sans selection:bg-[var(--color-primary)] selection:text-black">
+    <main className="bg-[var(--color-background)] text-[var(--color-foreground)] min-h-screen font-sans selection:bg-[var(--color-primary)] selection:text-black overflow-x-hidden">
       <Preloader />
       <Scene />
       <Navbar />

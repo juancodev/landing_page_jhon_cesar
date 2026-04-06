@@ -27,7 +27,7 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section id="process" className="relative py-32 px-6 md:px-12 bg-[#0a0a0a] overflow-hidden">
+    <section id="process" className="relative py-20 md:py-32 px-6 md:px-12 bg-[#0a0a0a] overflow-hidden">
       {/* Background 3D Monitor */}
       <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
         <MonitorScene />
@@ -39,13 +39,13 @@ export function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-sm font-bold tracking-widest uppercase text-[var(--color-primary)] mb-4">
             Cómo Trabajo
           </h2>
-          <h3 className="text-4xl md:text-6xl font-black tracking-tighter">
-            Un proceso diseñado <br /> para el éxito.
+          <h3 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter">
+            Un proceso diseñado <br className="hidden sm:block" /> para el éxito.
           </h3>
         </motion.div>
 

@@ -30,24 +30,24 @@ const PROJECTS = [
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="py-32 px-6 md:px-12 bg-[var(--color-background)]">
-      <div className="max-w-7xl mx-auto">
+    <section id="portfolio" className="relative py-20 md:py-32 px-6 md:px-12 overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="mb-20 flex flex-col md:flex-row justify-between items-end gap-8"
+          className="mb-12 md:mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8"
         >
           <div>
             <h2 className="text-sm font-bold tracking-widest uppercase text-[var(--color-primary)] mb-4">
               Trabajos Destacados
             </h2>
-            <h3 className="text-4xl md:text-6xl font-black tracking-tighter">
-              Proyectos que hablan <br /> por sí solos.
+            <h3 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter">
+              Proyectos que hablan <br className="hidden sm:block" /> por sí solos.
             </h3>
           </div>
-          <p className="max-w-md text-[var(--color-muted)] text-lg">
+          <p className="max-w-md text-[var(--color-muted)] text-base md:text-lg">
             Una selección de mis mejores ediciones, donde el ritmo, el color y la narrativa se unen para crear impacto.
           </p>
         </motion.div>

@@ -224,8 +224,8 @@ function MonitorModel() {
 
 export function MonitorScene() {
   return (
-    <div className="w-full h-full min-h-[400px] md:min-h-[500px]">
-      <Canvas camera={{ position: [0, 1, 7], fov: 45 }}>
+    <div className="w-full h-full min-h-[400px] md:min-h-[500px] pointer-events-none">
+      <Canvas camera={{ position: [0, 1, 7], fov: 45 }} style={{ pointerEvents: 'none' }}>
         <ambientLight intensity={0.3} />
         <spotLight position={[10, 10, 10]} angle={0.3} penumbra={1} intensity={2} color="#ffffff" />
         <pointLight position={[-10, -5, 10]} intensity={1} color="#ccddff" />

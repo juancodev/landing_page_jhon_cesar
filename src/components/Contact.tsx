@@ -4,24 +4,24 @@ import { MicrophoneScene } from "./MicrophoneScene";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-32 px-6 md:px-12 bg-[var(--color-background)]">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="relative py-20 md:py-32 px-6 md:px-12 overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-sm font-bold tracking-widest uppercase text-[var(--color-primary)] mb-4">
             Trabajemos Juntos
           </h2>
-          <h3 className="text-4xl md:text-6xl font-black tracking-tighter">
-            ¿Listo para llevar tus videos <br /> al siguiente nivel?
+          <h3 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter">
+            ¿Listo para llevar tus videos <br className="hidden sm:block" /> al siguiente nivel?
           </h3>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -58,7 +58,7 @@ export function Contact() {
             </div>
 
             {/* Microphone 3D Element - Fixed to this section */}
-            <div className="w-full h-[300px] lg:h-[400px] mt-8 lg:mt-12 relative">
+            <div className="w-full h-[300px] lg:h-[400px] mt-8 lg:mt-12 relative pointer-events-none">
               <div className="absolute inset-0 lg:-left-12">
                 <MicrophoneScene />
               </div>
@@ -70,7 +70,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
-            className="bg-[var(--color-card)] p-8 md:p-12 rounded-3xl border border-white/5"
+            className="relative z-20 pointer-events-auto bg-[var(--color-card)] p-8 md:p-12 rounded-3xl border border-white/5"
             onSubmit={(e) => e.preventDefault()}
           >
             <div className="space-y-6">

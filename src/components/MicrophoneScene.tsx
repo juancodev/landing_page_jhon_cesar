@@ -113,8 +113,8 @@ function MicrophoneModel() {
 
 export function MicrophoneScene() {
   return (
-    <div className="w-full h-full min-h-[300px] md:min-h-[400px]">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+    <div className="w-full h-full min-h-[300px] md:min-h-[400px] pointer-events-none">
+      <Canvas camera={{ position: [0, 0, 5], fov: 45 }} style={{ pointerEvents: 'none' }}>
         <ambientLight intensity={0.2} />
         <spotLight position={[10, 10, 10]} angle={0.3} penumbra={1} intensity={3} color="#ffe6cc" />
         <pointLight position={[-10, -5, 10]} intensity={2} color="#ccddff" />
