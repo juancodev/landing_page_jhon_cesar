@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 
+const customEase = [0.22, 1, 0.36, 1] as any;
+
 const PROJECTS = [
   {
     id: 1,
@@ -33,10 +35,10 @@ export function Portfolio() {
     <section id="portfolio" className="relative py-20 md:py-32 px-6 md:px-12 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.2, ease: customEase }}
           className="mb-12 md:mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8"
         >
           <div>
@@ -56,21 +58,21 @@ export function Portfolio() {
           {PROJECTS.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, delay: index * 0.15, ease: customEase }}
               className="group relative block overflow-hidden rounded-2xl bg-[var(--color-card)] aspect-[4/3] cursor-pointer"
             >
               <img
                 src={project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110 opacity-80 group-hover:opacity-100"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-500 group-hover:opacity-80" />
               
-              <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
+              <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
                 <div>
                   <p className="text-[var(--color-primary)] font-medium text-sm mb-2 uppercase tracking-wider">
                     {project.category}
@@ -79,7 +81,7 @@ export function Portfolio() {
                     {project.title}
                   </h4>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-[var(--color-primary)] group-hover:text-white transition-all duration-300 group-hover:scale-110">
                   <ArrowUpRight className="w-6 h-6" />
                 </div>
               </div>

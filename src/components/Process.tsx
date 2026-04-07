@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 import { MonitorScene } from "./MonitorScene";
 
+const customEase = [0.22, 1, 0.36, 1] as any;
+
 const STEPS = [
   {
     number: "01",
@@ -35,10 +37,10 @@ export function Process() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.2, ease: customEase }}
           className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-sm font-bold tracking-widest uppercase text-[var(--color-primary)] mb-4">
@@ -53,20 +55,20 @@ export function Process() {
           {STEPS.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="relative p-8 rounded-2xl bg-[var(--color-card)] border border-white/5 hover:border-[var(--color-primary)]/50 transition-colors group"
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, delay: index * 0.15, ease: customEase }}
+              className="relative p-8 rounded-2xl bg-[var(--color-card)] border border-white/5 hover:border-[var(--color-primary)]/50 hover:shadow-[0_0_30px_rgba(242,125,38,0.1)] hover:-translate-y-2 transition-all duration-500 group"
             >
-              <div className="text-6xl font-black text-white/5 mb-6 group-hover:text-[var(--color-primary)]/20 transition-colors">
+              <div className="text-6xl font-black text-white/5 mb-6 group-hover:text-[var(--color-primary)]/20 transition-colors duration-500">
                 {step.number}
               </div>
               <h4 className="text-xl font-bold mb-4 flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[var(--color-primary)]" />
+                <CheckCircle2 className="w-5 h-5 text-[var(--color-primary)] group-hover:scale-110 transition-transform duration-500" />
                 {step.title}
               </h4>
-              <p className="text-[var(--color-muted)] leading-relaxed">
+              <p className="text-[var(--color-muted)] leading-relaxed group-hover:text-white/80 transition-colors duration-500">
                 {step.description}
               </p>
             </motion.div>
